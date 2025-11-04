@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TOP VEHICULOS DEPORTIVOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --bg-top:#071028;
+        --bg-bottom:#0f1724;
+        --card-bg:rgba(255,255,255,0.02);
+        --accent:#FFD166;
+        --muted:#9fb3c8;
+      }
+
+      /* Base */
+      body{
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+        color: #e6f0fb;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+      }
+
+      /* Navbar */
+      .navbar{
+        background: linear-gradient(90deg, rgba(7,18,40,0.92), rgba(12,20,33,0.92));
+        box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      }
+      .navbar-brand{
+        font-family: 'Playfair Display', serif;
+        font-weight:700;
+        color: var(--accent) !important;
+        display:flex;align-items:center;
+      }
+      .navbar-brand img{
+        height:44px; width:auto; margin-right:10px; border-radius:6px; box-shadow:0 6px 20px rgba(0,0,0,0.45);
+      }
+
+      /* Carousel */
+      .carousel-item img{ height:220px; object-fit:cover; border-radius:10px; }
+      .carousel-caption{ background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.15)); padding:0.6rem 1rem; border-radius:8px; }
+      .carousel-caption h3{ font-family:'Playfair Display',serif; color:var(--accent); margin-bottom:0.2rem; }
+
+      /* Cards */
+      .card{ background: var(--card-bg); border:none; border-radius:12px; color: #e6f0fb; overflow:hidden; }
+      .card-img-top{ height:200px; object-fit:cover; }
+      .card-body{ padding:1rem; }
+      .card-title{ font-family:'Playfair Display', serif; color:var(--accent); margin-bottom:0.4rem; }
+      .card-text{ color:var(--muted); }
+      .card:hover{ transform:translateY(-8px); box-shadow:0 18px 40px rgba(2,6,23,0.6); transition: all .28s cubic-bezier(.2,.8,.2,1); }
+
+      /* Buttons */
+      .btn-primary{ background: linear-gradient(90deg, var(--accent), #ffd88a); border:none; color:#071226; font-weight:600; border-radius:8px; box-shadow:0 10px 24px rgba(255,209,102,0.12); }
+      .btn-primary:hover{ transform:translateY(-2px); }
+
+      /* Search */
+      .search-container{ max-width:640px; margin:22px auto; }
+      .search-container input{ background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); color:#e6f0fb; padding:12px 16px; border-radius:999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.02); }
+
+      /* Footer */
+      footer{ background:transparent; border-top:1px solid rgba(255,255,255,0.03); color:var(--muted); }
+
+      /* Utilities */
+      .mt-auto{ margin-top:auto; }
+      @media (max-width:767px){
+        .carousel-item img, .card-img-top{ height:160px; }
+        .navbar-brand img{ height:36px; }
+      }
+      /* Socios */
+      #sociosTitle{ color:var(--accent); font-family:'Playfair Display', serif; margin-bottom:1rem; }
+      #socios .card{ background: rgba(255,255,255,0.02); border-radius:10px; }
+    
+      #socios .card img{ width:100%; height:100%; object-fit:cover; }
+      @media (max-width:767px){
+        #socios .col-4{ flex:0 0 30%; max-width:30%; }
+      }
+    </style>
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="img/LOGO.png" alt="Logo" class="me-2 align-text-top">
+        Concesionario Deportivo
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#vehiculos">Vehículos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <body>
+    <!-- Carrusel -->
+    <div id="carouselVehiculos" class="carousel slide mb-4" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselVehiculos" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://www.bmw-m.com/content/dam/bmw/marketBMW_M/www_bmw-m_com/topics/magazine-article-pool/2022/g81-precom/bmw-m3-competition-touring-stage-teaser-05.jpg?imwidth=1440" class="d-block w-100" alt="BMW M3 Touring">
+          <div class="carousel-caption">
+            <h3>BMW M3 TOURING</h3>
+            <p>Potencia y elegancia en formato familiar</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.carscoops.com/wp-content/uploads/2022/05/2022-ABT-Audi-RS7-R-1-1-1536x832.jpg" class="d-block w-100" alt="Audi RS7 ABT">
+          <div class="carousel-caption">
+            <h3>AUDI RS7 ABT</h3>
+            <p>Rendimiento llevado al extremo</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://d1gl66oyi6i593.cloudfront.net/wp-content/uploads/2024/08/porsche-911-gt3-rs-991-1-rayo-mcqueen.jpg" class="d-block w-100" alt="Porsche 911 GT3-RS">
+          <div class="carousel-caption">
+            <h3>PORSCHE 911 GT3-RS-991</h3>
+            <p>Edición especial "Lightning McQueen"</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselVehiculos" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselVehiculos" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container my-4">
+      <!-- Barra de búsqueda -->
+      <div class="search-container">
+        <input type="text" id="searchInput" class="form-control" placeholder="Buscar vehículos...">
+      </div>
+
+      <!-- Sección principal con Cards: 2 filas de 3 tarjetas (total 6) -->
+      <main class="my-5" id="vehiculos">
+        <div class="row g-4">
+          <!-- Fila 1 -->
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media1.tenor.com/m/dJNAex4UajEAAAAd/bmw-m3.gif" class="card-img-top" alt="BMW M3 Touring">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">BMW M3 TOURING</h5>
+                <p class="card-text">Potencia y elegancia en formato familiar</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media1.tenor.com/m/o8aifTxgk_MAAAAC/audi-audirs7.gif" class="card-img-top" alt="Audi RS7 SPORTBACK">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">AUDI RS7 SPORTBACK</h5>
+                <p class="card-text">Rendimiento llevado al extremo</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm51cTJvZmxrdmdkMTJqYWNmOTVldmY3ZmE2ZmMwamxieHMxajBqOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pQU5e82X8zW8vBoijq/giphy.gif" class="card-img-top" alt="Audi R8">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">AUDI R8</h5>
+                <p class="card-text">Un deportivo clásico con presencia</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Fila 3 (duplicada de la fila 1, total 9 tarjetas) -->
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdnF0dnd5Y2Z1b3Q5cTNreXBtZzM0MTNwYTFmMGdwaTNya3NheTFwbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WoFwX3YgtRj8b2lCu4/giphy.gif" class="card-img-top" alt="BMW M3 Touring">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Lamborghini Aventador SVJ</h5>
+                <p class="card-text">No hace falta presentación</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media.tenor.com/JCSSDYmE2hAAAAAC/audi-rs6-rs6.gif" class="card-img-top" alt="Audi RS6">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">AUDI RS6</h5>
+                <p class="card-text">Pura explosividad</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media1.tenor.com/m/StGQM1IYkxYAAAAC/porsche-911-gt2-rs-supercar.gif" class="card-img-top" alt="Porsche 911 GT2 RS">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Porsche 911 GT3 RS</h5>
+                <p class="card-text">Una leyenda de la pista</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fila 2 (duplicada de la fila 1) -->
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media1.tenor.com/m/mNJc-ztPPMYAAAAd/patal-m4.gif" class="card-img-top" alt="BMW M4">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">BMW M4</h5>
+                <p class="card-text">Potencia y elegancia en formato coupé</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media1.tenor.com/m/c2WP1ZqGgHoAAAAd/maybach-mercedes.gif" class="card-img-top" alt="Maybach GLC">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Maybach GLC</h5>
+                <p class="card-text">Comodidad y lujo en cada detalle</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-4 d-flex">
+            <div class="card shadow-sm w-100">
+              <img src="https://media1.tenor.com/m/jVSjt4FxGpwAAAAd/dodge.gif" class="card-img-top" alt="Dodge Hellcat SRT">
+              <div class="card-body text-center d-flex flex-column">
+                <h5 class="card-title">Dodge Hellcat SRT</h5>
+                <p class="card-text">Una bestia en la carretera</p>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary">Más información</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modal de inicio de sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <form id="loginForm">
+              <div class="mb-3">
+                <label for="loginEmail" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="loginEmail" required>
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="loginPassword" required>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de información del vehículo -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="infoModalLabel">Información</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <h6 id="infoTitle" class="mb-2"></h6>
+            <p id="infoDescription" class="mb-0"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+      // Función de búsqueda
+      document.getElementById('searchInput').addEventListener('keyup', function() {
+        const searchText = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.card');
+        
+        cards.forEach(card => {
+          const title = card.querySelector('.card-title').textContent.toLowerCase();
+          const text = card.querySelector('.card-text').textContent.toLowerCase();
+          
+          if (title.includes(searchText) || text.includes(searchText)) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+
+      // Cambiar texto y comportamiento de los botones y añadir botón "informacion"
+      (function(){
+        // Mapeo de descripciones breves por título de tarjeta
+        const descriptions = {
+          'BMW M3 TOURING': 'Motor potente, manejo preciso y un maletero sorprendentemente amplio para su segmento.',
+          'AUDI RS7 SPORTBACK': 'Gran potencia, diseño coupé y tecnología avanzada para alto rendimiento en carretera.',
+          'AUDI R8': 'Superdeportivo de motor central, equilibrio entre lujo y prestaciones épicas.',
+          'Lamborghini Aventador SVJ': 'V12 atmosférico, diseño extremo y prestaciones de pista en estado puro.',
+          'AUDI RS6': 'Familiar con alma deportiva: velocidad explosiva con utilidad diaria.',
+          'Porsche 911 GT3 RS': 'Chasis orientado a circuito, aerodinámica activa y respuesta inmediata.',
+          'BMW M4': 'Coupé deportivo con gran equilibrio entre confort y prestaciones dinámicas.',
+          'Maybach GLC': 'Lujo y confort supremo en cada detalle, pensado para viajar con estilo.',
+          'Dodge Hellcat SRT': 'Motor sobrealimentado con par brutal y personalidad de muscle car clásico.'
+        };
+
+        // Actualiza los botones principales (ancla .btn.btn-primary) a "adquierelo" y les añade el comportamiento de login
+        const primaryButtons = document.querySelectorAll('.card .btn.btn-primary');
+        primaryButtons.forEach(btn => {
+          // Cambia el texto del botón principal
+          btn.textContent = 'adquierelo';
+          btn.classList.add('btn-adquierelo');
+
+          // Abre el modal de login al hacer clic
+          btn.addEventListener('click', function(e){
+            e.preventDefault();
+            const loginModalEl = document.getElementById('loginModal');
+            const loginModal = new bootstrap.Modal(loginModalEl);
+            loginModal.show();
+          });
+        });
+
+        // Insertar un botón "informacion" en cada tarjeta y conectarlo al modal de información
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+          const titleEl = card.querySelector('.card-title');
+          const title = titleEl ? titleEl.textContent.trim() : 'Vehículo';
+
+          // Crear botón de información
+          const infoBtn = document.createElement('button');
+          infoBtn.type = 'button';
+          infoBtn.className = 'btn btn-outline-light me-2 info-btn';
+          infoBtn.textContent = 'informacion';
+
+          // Buscar el contenedor de botones y añadir el infoBtn antes del botón principal
+          const btnContainer = card.querySelector('.mt-auto');
+          if (btnContainer) {
+            // Insertar al inicio del contenedor para que quede a la izquierda
+            btnContainer.insertBefore(infoBtn, btnContainer.firstChild);
+          }
+
+          // Manejar click: rellenar modal con la descripción y mostrarlo
+          infoBtn.addEventListener('click', function(e){
+            e.preventDefault();
+            const infoTitle = document.getElementById('infoTitle');
+            const infoDesc = document.getElementById('infoDescription');
+            infoTitle.textContent = title;
+            infoDesc.textContent = descriptions[title] || (card.querySelector('.card-text') ? card.querySelector('.card-text').textContent : 'Descripción no disponible.');
+            const infoModalEl = document.getElementById('infoModal');
+            const infoModal = new bootstrap.Modal(infoModalEl);
+            infoModal.show();
+          });
+        });
+      })();
+    </script>
+
+    <!-- Sección Socios -->
+    <section id="socios" class="container my-5">
+      <h3 id="sociosTitle">Socios</h3>
+      <div class="row g-4 align-items-center">
+        <div class="col-sm-12 col-md-6 d-flex">
+          <div class="card shadow-sm w-100">
+            <div class="row g-0 align-items-center">
+              <div class="col-4">
+                <img src="img/38f31fad-af93-4370-85a8-942a6acc3b0e.jpeg" alt="Ayman" class="img-fluid rounded-start">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title">Ayman</h5>
+                  <p class="card-text text-muted mb-1">Socio fundador — Dirección estratégica</p>
+                  <p class="card-text small">Responsable de la visión, alianzas y desarrollo de negocio.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 d-flex">
+          <div class="card shadow-sm w-100">
+            <div class="row g-0 align-items-center">
+              <div class="col-4">
+                <img src="img/3a0ff0c4-25ec-4951-9d8a-17afe87add04.JPG"Wael" class="img-fluid rounded-start">
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <h5 class="card-title">Wael</h5>
+                  <p class="card-text text-muted mb-1">Socio fundador — Operaciones y ventas</p>
+                  <p class="card-text small">Encargado de operaciones diarias, flota y atención al cliente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </body>
+  
+  <footer class="bg-dark text-white text-center p-4 mt-5" id="contacto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Contacto</h5>
+          <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/myzbqboa"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+          <p>
+            <a href="https://www.instagram.com/awsyncgroup/" target="_blank" rel="noopener noreferrer" class="text-white">
+              Síguenos en Instagram: @awsyncgroup
+            </a>
+          </p>
+          <p>
+            <a href="https://www.instagram.com/awsyncgroup/" target="_blank" rel="noopener noreferrer" class="text-white">Contactar vía Instagram</a>
+          </p>
+        </div>
+      </div>
+      <div class="mt-3">
+        <p>© 2025 Institut Barres i Ones - Concesionario Deportivo</p>
+      </div>
+    </div>
+    
+  </footer>
+</html>
